@@ -1,138 +1,141 @@
-# Railway Deployment Dashboard
+# 🚀 Railway Deployment Dashboard
 
-A production-grade, full-stack deployment dashboard inspired by Railway’s internal tooling. This project simulates a real-world developer platform for managing services, triggering deployments, and monitoring system behavior through a clean, developer-focused interface.
+A production-grade, full-stack deployment dashboard inspired by Railway’s internal tooling.
 
----
-
-## Why I Built This
-
-Railway’s hiring process emphasizes building real systems rather than solving isolated problems.
-To align with that, I built a complete deployment dashboard that reflects how modern infrastructure tools abstract complexity for developers.
-
-The goal was to:
-
-* Simplify complex deployment workflows into intuitive UI interactions
-* Handle asynchronous deployment states reliably
-* Provide real-time feedback through logs and status updates
-* Design a system that feels like an actual production tool
+👉 **Live Demo**: https://railway-deployment-dashboard-production.up.railway.app
+👉 **GitHub**: https://github.com/Krissdevhub/railway-deployment-dashboard
 
 ---
 
-## Key Features
+## 💡 Why I Built This
 
-* **Service Management**
-  Browse and switch between services across projects with real-time status indicators.
+Railway’s engineering culture focuses on **shipping real systems**, not solving isolated problems.
 
-* **Deployment Lifecycle Simulation**
-  Trigger deployments and observe full lifecycle transitions:
+To align with that philosophy, I built a complete deployment dashboard that simulates how modern infrastructure platforms abstract complexity for developers.
+
+This project focuses on:
+
+* Translating complex deployment workflows into intuitive UI
+* Handling asynchronous state transitions reliably
+* Providing real-time system feedback via logs and status updates
+* Designing a developer-first product experience
+
+---
+
+## ⚙️ Key Features
+
+### 🧩 Service Management
+
+* Navigate between services with real-time status indicators
+* Consistent state across the entire UI
+
+### 🔄 Deployment Lifecycle Simulation
+
+* Full lifecycle tracking:
   `Building → Deploying → Success / Failed`
+* Instant UI feedback + background state sync
 
-* **Live Logs Viewer**
-  Terminal-style log streaming with:
+### 🖥️ Live Logs Viewer
 
-  * Auto-scroll
-  * Pause/resume
-  * Severity highlighting (INFO, WARN, ERROR)
+* Terminal-style interface
+* Auto-scroll + pause/resume
+* Severity highlighting (INFO / WARN / ERROR)
 
-* **Deployment Controls**
-  Deploy, stop, and restart services with immediate UI feedback and state synchronization.
+### 🎛️ Deployment Controls
 
-* **State Synchronization Across UI**
-  Deployment state is reflected consistently across:
+* Deploy, stop, restart services
+* Immediate UI response with async state handling
 
-  * Sidebar indicators
-  * Header badges
+### 🧠 State Synchronization
+
+* Unified state across:
+
+  * Sidebar
+  * Header
   * Logs
+* Prevents UI inconsistency
 
-* **Infrastructure Visualization**
-  Visual representation of services (web, database, cache, workers)
+### 🗺️ Infrastructure Visualization
 
-* **Environment Variables Management**
-  Secure key-value handling with masking and editing support
+* Visual mapping of services:
 
-* **Demo Mode + Live Mode**
+  * Web
+  * Database
+  * Cache
+  * Workers
 
-  * Works without API key using realistic mock data
-  * Can connect to Railway GraphQL API for real data
+### 🔐 Environment Variables
+
+* Secure key-value management
+* Masking + controlled reveal/edit
+
+### 🧪 Demo Mode + Live Mode
+
+* Works without API key (mock data)
+* Can connect to Railway GraphQL API
 
 ---
 
-## Architecture & Technical Decisions
+## 🏗️ Architecture & Technical Decisions
 
 ### Frontend
 
-* **React + TypeScript** for type safety and maintainability
-* **Vite** for fast builds and development
+* React + TypeScript for scalability and maintainability
+* Vite for fast builds and dev experience
 
 ### State Management
 
-* **Zustand** → lightweight global UI state
-* **TanStack Query** → server state, caching, polling, async flows
+* Zustand → lightweight global UI state
+* TanStack Query → server state, caching, polling
 
 ### API Layer
 
-* **GraphQL (Railway API v2)** via a dedicated service layer
-* Clean abstraction for queries and mutations
-* Easy switch between mock and live API
+* GraphQL (Railway API v2)
+* Clean abstraction layer
+* Easy switching between mock and live data
 
 ### Async Workflow Handling
 
-* Deploy actions trigger mutations
-* UI immediately reflects loading state
-* Background polling updates deployment status
-* Logs refresh every few seconds for real-time feel
+* Mutations trigger deployments
+* UI reflects optimistic updates
+* Background polling syncs real state
+* Logs update periodically for real-time feel
 
-### UI/UX Design Principles
+### UI/UX Principles
 
-* Developer-first interface (inspired by Railway/Vercel)
+* Developer-first interface (Railway/Vercel inspired)
 * Dark theme for readability
-* Clear feedback for every action (loading, success, error)
-* Simplicity over visual complexity
+* Clear system feedback (loading, success, error)
+* Simplicity over visual clutter
 
 ---
 
-## Tech Stack
+## 🧰 Tech Stack
 
 * **Frontend**: React 18, TypeScript, Vite
 * **State**: Zustand, TanStack Query
-* **Styling**: Vanilla CSS (custom design system)
 * **API**: GraphQL (Railway Public API v2)
+* **Styling**: Vanilla CSS (custom system)
 * **Icons**: Lucide React
 * **Fonts**: Inter, JetBrains Mono
 
 ---
 
-## Getting Started
+## 🚀 Getting Started
 
-### Prerequisites
-
-* Node.js (v18+)
-
-### Installation
+### Install
 
 ```bash
 npm install
 ```
 
-### Environment Setup (Optional)
-
-```env
-VITE_RAILWAY_TOKEN=your_token_here
-```
-
-If no token is provided, the app runs in **Demo Mode**.
-
----
-
-## Development
+### Run (Dev)
 
 ```bash
 npm run dev
 ```
 
----
-
-## Build
+### Build
 
 ```bash
 npm run build
@@ -140,9 +143,17 @@ npm run build
 
 ---
 
-## Deployment
+## 🔑 Environment Setup (Optional)
 
-Deploy directly to Railway:
+```env
+VITE_RAILWAY_TOKEN=your_token_here
+```
+
+👉 Without token → runs in **Demo Mode**
+
+---
+
+## 🚀 Deployment (Railway)
 
 ```bash
 npm i -g @railway/cli
@@ -153,16 +164,16 @@ railway up
 
 ---
 
-## Future Improvements
+## 🔮 Future Improvements
 
-* WebSocket-based real-time logs (instead of polling)
-* Multi-region deployment visualization
+* WebSocket-based real-time logs
+* Multi-region deployment view
 * CI/CD pipeline integration
 * Role-based access control
-* Advanced observability (metrics, traces)
+* Observability (metrics + traces)
 
 ---
 
-## License
+## 📄 License
 
 MIT
