@@ -32,27 +32,27 @@ export const useDashboardStore = create<DashboardState>((set) => ({
   activeTab: "overview",
   toasts: [],
 
-  selectProject: (id) => set({ selectedProjectId: id, selectedServiceId: null, activeTab: "overview" }),
+  selectProject: (id: string) => set({ selectedProjectId: id, selectedServiceId: null, activeTab: "overview" }),
 
-  selectService: (id) => set({ selectedServiceId: id, activeTab: "overview" }),
+  selectService: (id: string) => set({ selectedServiceId: id, activeTab: "overview" }),
 
-  setEnvironment: (id) => set({ selectedEnvironmentId: id }),
+  setEnvironment: (id: string) => set({ selectedEnvironmentId: id }),
 
-  toggleSidebar: () => set((s) => ({ sidebarCollapsed: !s.sidebarCollapsed })),
+  toggleSidebar: () => set((s: DashboardState) => ({ sidebarCollapsed: !s.sidebarCollapsed })),
 
-  toggleLogsAutoScroll: () => set((s) => ({ logsAutoScroll: !s.logsAutoScroll })),
+  toggleLogsAutoScroll: () => set((s: DashboardState) => ({ logsAutoScroll: !s.logsAutoScroll })),
 
-  toggleLogsPaused: () => set((s) => ({ logsPaused: !s.logsPaused })),
+  toggleLogsPaused: () => set((s: DashboardState) => ({ logsPaused: !s.logsPaused })),
 
-  setActiveTab: (tab) => set({ activeTab: tab }),
+  setActiveTab: (tab: "deployments" | "logs" | "variables" | "overview") => set({ activeTab: tab }),
 
-  showToast: (type, message) => {
+  showToast: (type: "success" | "error" | "info", message: string) => {
     const id = generateId();
-    set((s) => ({ toasts: [...s.toasts, { id, type, message }] }));
+    set((s: DashboardState) => ({ toasts: [...s.toasts, { id, type, message }] }));
     setTimeout(() => {
-      set((s) => ({ toasts: s.toasts.filter((t) => t.id !== id) }));
+      set((s: DashboardState) => ({ toasts: s.toasts.filter((t: any) => t.id !== id) }));
     }, 4000);
   },
 
-  dismissToast: (id) => set((s) => ({ toasts: s.toasts.filter((t) => t.id !== id) })),
+  dismissToast: (id: string) => set((s: DashboardState) => ({ toasts: s.toasts.filter((t: any) => t.id !== id) })),
 }));

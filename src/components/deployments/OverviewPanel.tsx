@@ -17,7 +17,7 @@ export function OverviewPanel({
   deployments,
   latestDeployment,
 }: OverviewPanelProps) {
-  const selectService = useDashboardStore((s) => s.selectService);
+  const selectService = useDashboardStore((s: any) => s.selectService);
 
   const successCount = deployments.filter(
     (d) => d.status === DeploymentStatus.SUCCESS

@@ -22,7 +22,7 @@ export function useProjects() {
 }
 
 export function useDeployments(serviceId: string | null) {
-  const environmentId = useDashboardStore((s) => s.selectedEnvironmentId);
+  const environmentId = useDashboardStore((s: any) => s.selectedEnvironmentId);
 
   return useQuery({
     queryKey: ["deployments", serviceId, environmentId],
@@ -43,7 +43,7 @@ export function useDeployments(serviceId: string | null) {
 }
 
 export function useLogs(deploymentId: string | null) {
-  const paused = useDashboardStore((s) => s.logsPaused);
+  const paused = useDashboardStore((s: any) => s.logsPaused);
 
   return useQuery({
     queryKey: ["logs", deploymentId],
@@ -68,7 +68,7 @@ export function useVariables(
 
 export function useDeployAction() {
   const queryClient = useQueryClient();
-  const showToast = useDashboardStore((s) => s.showToast);
+  const showToast = useDashboardStore((s: any) => s.showToast);
 
   const deployMutation = useMutation({
     mutationFn: ({ serviceId, environmentId }: { serviceId: string; environmentId?: string }) =>

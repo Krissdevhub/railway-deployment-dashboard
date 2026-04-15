@@ -8,7 +8,7 @@ export function ToastContainer() {
 
   return (
     <div className="toast-container">
-      {toasts.map((toast) => (
+      {toasts.map((toast: any) => (
         <div
           key={toast.id}
           className={`toast ${toast.type}`}

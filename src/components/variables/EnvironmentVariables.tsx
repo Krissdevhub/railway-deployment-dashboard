@@ -13,7 +13,7 @@ export function EnvironmentVariables({
   serviceId,
 }: EnvironmentVariablesProps) {
   const { data: variables, isLoading } = useVariables(projectId, serviceId);
-  const showToast = useDashboardStore((s) => s.showToast);
+  const showToast = useDashboardStore((s: any) => s.showToast);
   const [revealed, setRevealed] = useState<Set<string>>(new Set());
   const [newVarName, setNewVarName] = useState("");
   const [newVarValue, setNewVarValue] = useState("");
